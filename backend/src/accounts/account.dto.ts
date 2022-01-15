@@ -14,4 +14,8 @@ export class AccountDTO {
   @IsNotEmpty()
   @Length(8)
   password: string;
+
+  @IsString()
+  @IsNotEmpty()
+  type: "candidate" | "interviewer" | "recruiter";
 }
