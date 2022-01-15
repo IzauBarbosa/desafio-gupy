@@ -14,16 +14,17 @@ const requestToAPI = async (config, setLoading) => {
     });
     
     setLoading(false);
-
     return ({
-      success: response?.status === 200,
+      success: !!response?.data?.data,
       data: response?.data?.data,
     });
 
-  } catch (error) {
-
-    setLoading(false);
-  }
+  } catch (error) { console.log(error) }
+  
+  setLoading(false);
+  return ({
+    success: false,
+  });
 }
 
 export default requestToAPI;
