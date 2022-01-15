@@ -15,7 +15,7 @@ export class AccountService {
     return new Account(await this.repository.save(newAccount));
   }
 
-  public async findOneByEmail(email: string): Promise<Account> {
+  public async findOneByEmail(email: string): Promise<Account | null> {
     const account = await this.repository.findOne({ email });
 
     if (account) {

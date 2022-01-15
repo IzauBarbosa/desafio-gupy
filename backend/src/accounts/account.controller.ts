@@ -1,4 +1,11 @@
-import { BadRequestException, Body, Controller, Post } from '@nestjs/common';
+import { 
+  BadRequestException,
+  NotFoundException, 
+  Body, 
+  Controller, 
+  Param,
+  Post, 
+  Get } from '@nestjs/common';
 import { Account } from './account';
 import { AccountDTO } from './account.dto';
 import { AccountService } from './account.service';
@@ -18,5 +25,18 @@ export class AccountController {
     }
 
     return this.service.create(new Account(body));
+  }
+
+  @Get('get-account-by-email/:accountByEmail')
+  public async getAccountByEmail(
+    @Param('accountByEmail') accountByEmail: string,
+  ): Promise<Account | NotFoundException> {
+    const account = await this.service.findOneByEmail(accountByEmail);
+
+    if (!account) {
+      throw new NotFoundException(null, `Account with email ${accountByEmail} not exists`);
+    }
+
+    return account;
   }
 }
