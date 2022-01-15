@@ -25,6 +25,16 @@ export class AccountService {
     return null;
   }
 
+  public async findOneByEmailAndPassword(email: string, password: string): Promise<Account | null> {
+    const account = await this.repository.findOne({ email, password });
+
+    if (account) {
+      return new Account(account);
+    }
+
+    return null;
+  }
+
   public async findOneById(id: number): Promise<Account | null> {
     const account = await this.repository.findOne({ id });
 
