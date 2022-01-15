@@ -1,33 +1,20 @@
-import { useState, useEffect } from 'react';
-import requestToAPI from './services/request';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from 'react-router-dom';
+import { SignIn, SignUp } from './componentes/pages';
 
 function App() {
 
-  const [loading, setLoading] = useState(false);
-
-  const handleRequest = async () => {
-
-    const teste = await requestToAPI({
-      method: "get",
-      context: "jobs",
-      endpoint: "list-all-jobs"
-    }, setLoading);
-  }
-
-  useEffect(() => {
-    
-    handleRequest();
-
-  }, []);
-
-  useEffect(() => {
-
-    console.log(loading)
-  }, [loading])
-
   return (
     <div className="App">
-      
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<SignIn />} />
+          <Route path="sign-up" element={<SignUp />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
