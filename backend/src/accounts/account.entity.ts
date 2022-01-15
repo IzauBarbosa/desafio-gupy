@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { AccountTypeEnum } from './account.enums';
 
 @Entity('accounts')
 export class AccountEntity {
@@ -15,5 +16,5 @@ export class AccountEntity {
   password: string;
 
   @Column('varchar', { length: 30 })
-  type: "candidate" | "interviewer" | "recruiter";
+  type: AccountTypeEnum;
 }

@@ -1,9 +1,11 @@
+import { AccountTypeEnum } from './account.enums';
+
 interface AccountParams {
   id?: number;
   name: string;
   email: string;
   password: string;
-  type: "candidate" | "interviewer" | "recruiter";
+  type: AccountTypeEnum;
 }
 
 export class Account {
@@ -11,7 +13,7 @@ export class Account {
   public name: string;
   public email: string;
   public password: string;
-  public type: "candidate" | "interviewer" | "recruiter";
+  public type: AccountTypeEnum;
 
   constructor({ id, name, email, password, type }: AccountParams) {
     this.id = id;

@@ -1,4 +1,5 @@
 import { IsEmail, IsNotEmpty, IsString, Length } from 'class-validator';
+import { AccountTypeEnum } from './account.enums';
 
 export class AccountDTO {
   @IsEmail()
@@ -17,5 +18,5 @@ export class AccountDTO {
 
   @IsString()
   @IsNotEmpty()
-  type: "candidate" | "interviewer" | "recruiter";
+  type: AccountTypeEnum;
 }
