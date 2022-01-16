@@ -1,9 +1,5 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const Styles = styled.div`
-  
-`;
+export const Styles = styled.div``
 
-export const Radio = styled.div`
-  
-`;
+export const Radio = styled.div``

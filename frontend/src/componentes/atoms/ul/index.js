@@ -1,10 +1,5 @@
-import { Styles } from './styles';
+import { Styles } from './styles'
 
 export const Ul = ({ children }) => {
-
-  return (
-    <Styles>
-      {children}
-    </Styles>
-  )
+  return <Styles>{children}</Styles>
 }

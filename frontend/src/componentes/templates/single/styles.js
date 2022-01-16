@@ -1,9 +1,5 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const Styles = styled.div`
-  
-`;
+export const Styles = styled.div``
 
-export const Body = styled.section`
-  
-`;
+export const Body = styled.section``

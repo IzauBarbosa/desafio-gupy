@@ -1,5 +1,3 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const Styles = styled.h1`
-  
-`;
+export const Styles = styled.h1``

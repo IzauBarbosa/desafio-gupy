@@ -1,10 +1,5 @@
-import { Styles } from './styles';
+import { Styles } from './styles'
 
 export const Label = ({ htmlFor, children }) => {
-
-  return (
-    <Styles {...{ htmlFor }}>
-      {children}
-    </Styles>
-  )
+  return <Styles {...{ htmlFor }}>{children}</Styles>
 }

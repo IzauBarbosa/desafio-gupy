@@ -1,9 +1,5 @@
-import { CardDefaultList } from './card-default-list';
-import { Form } from './form';
-import { Header } from './header';
+import { CardDefaultList } from './card-default-list'
+import { Form } from './form'
+import { Header } from './header'
 
-export {
-  CardDefaultList,
-  Form,
-  Header
-}
+export { CardDefaultList, Form, Header }

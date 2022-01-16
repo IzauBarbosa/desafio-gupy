@@ -1,11 +1,7 @@
-import { CardDefault } from '../../molecules';
-import { 
-  Styles, 
-  Row, 
-  Col } from './styles';
+import { CardDefault } from '../../molecules'
+import { Styles, Row, Col } from './styles'
 
 export const CardDefaultList = ({ items }) => {
-
   return (
     <Styles>
       <Row>
@@ -14,7 +10,7 @@ export const CardDefaultList = ({ items }) => {
             <Col key={`card-default-list-${index}`}>
               <CardDefault {...item} />
             </Col>
-          );
+          )
         })}
       </Row>
     </Styles>

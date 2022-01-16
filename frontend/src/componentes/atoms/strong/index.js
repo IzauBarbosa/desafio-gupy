@@ -1,10 +1,5 @@
-import { Styles } from './styles';
+import { Styles } from './styles'
 
 export const Strong = ({ children }) => {
-
-  return (
-    <Styles>
-      {children}
-    </Styles>
-  )
+  return <Styles>{children}</Styles>
 }

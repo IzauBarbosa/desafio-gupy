@@ -1,16 +1,13 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import {
-  BrowserRouter,
-  Routes,
-  Route } from 'react-router-dom';
-import { 
   ArchiveJob,
   CreateAccount,
   CreateJob,
-  Login, 
-  SingleJob } from './componentes/pages';
+  Login,
+  SingleJob,
+} from './componentes/pages'
 
 function App() {
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -25,7 +22,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
