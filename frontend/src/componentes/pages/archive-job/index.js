@@ -90,7 +90,7 @@ export const ArchiveJob = () => {
   
     }, []);
 
-    setJobsFiltered(filterAndFormat);
+    setJobsFiltered(filterAndFormat.reverse());
 
   }, [user, jobs, navigate, handleApply, handlePublish]);
 

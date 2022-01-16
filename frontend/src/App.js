@@ -5,6 +5,7 @@ import {
 import { 
   ArchiveJob,
   CreateAccount,
+  CreateJob,
   Login, 
   SingleJob } from './componentes/pages';
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="jobs">
             <Route path="all" element={<ArchiveJob />} />
             <Route path=":jobId" element={<SingleJob />} />
+            <Route path="create" element={<CreateJob />} />
           </Route>
         </Routes>
       </BrowserRouter>

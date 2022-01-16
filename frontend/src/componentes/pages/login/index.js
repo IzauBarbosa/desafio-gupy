@@ -6,16 +6,16 @@ import { Styles } from './styles';
 
 export const Login = () => {
   
+  const [user] = useState(getItem('user'));
   const [loginResponse, setLoginResponse] = useState();
   const navigate = useNavigate();
   
   useEffect(() => {
-    const user = getItem('user');
-
+  
     if (user) {
       navigate('/jobs/all');
     }
-  }, [navigate]);
+  }, [user, navigate]);
 
   useEffect(() => {
     if (loginResponse?.success) {
