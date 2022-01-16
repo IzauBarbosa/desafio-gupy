@@ -1,9 +1,9 @@
 import { Styles } from './styles';
 
-export const Label = ({ inputId, children }) => {
+export const Container = ({ size, children }) => {
 
   return (
-    <Styles htmlFor={inputId}>
+    <Styles size={size}>
       {children}
     </Styles>
   )

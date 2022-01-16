@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API = 'http://localhost:8080/api/v1';
 
-const requestToAPI = async (config, setLoading) => {
+export const requestToAPI = async (config, setLoading) => {
 
   setLoading(true);
   const { method, context, endpoint, data } = config;
@@ -25,6 +25,5 @@ const requestToAPI = async (config, setLoading) => {
   return ({
     success: false,
   });
+  
 }
-
-export default requestToAPI;

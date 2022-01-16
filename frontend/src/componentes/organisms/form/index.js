@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Styles } from './styles'
+import { requestToAPI } from '../../../services/request';
 import { Button } from '../../atoms';
 import { InputDefault, InputRadio } from '../../molecules';
-import requestToAPI from '../../../services/request';
+import { Styles } from './styles';
 
 export const Form = ({ request, fields, callback  }) => {
 
@@ -20,26 +20,22 @@ export const Form = ({ request, fields, callback  }) => {
   }
 
   return (
-    <Styles>
-      <form onSubmit={handleSubmit}>
-        {(fields || []).map((field, index) => {
-          const { id, name, label, type, onChange, value, group } = field;
+    <Styles onSubmit={handleSubmit}>
+      {(fields || []).map((field, index) => {
+        const { id, name, label, type, onChange, value, group } = field;
 
-          switch (type) {
-            case 'radio':
-
-              return (
-                <InputRadio key={`input-radio-${index}`} id={id} name={name} label={label} onChange={onChange} group={group} />
-              );
-            default:
-              
-              return (
-                <InputDefault key={`input-default-${index}`} id={id} label={label} type={type} onChange={onChange} value={value} />
-              );
-          }
-        })}
-        <Button type="submit" disabled={loading} loading={loading}>Enviar</Button>
-      </form>
+        switch (type) {
+          case 'radio':
+            return (
+              <InputRadio key={`input-radio-${index}`} id={id} name={name} label={label} onChange={onChange} group={group} />
+            );
+          default:
+            return (
+              <InputDefault key={`input-default-${index}`} id={id} label={label} type={type} onChange={onChange} value={value} />
+            );
+        }
+      })}
+      <Button type="submit" disabled={loading} loading={loading}>Enviar</Button>
     </Styles>
   )
 }

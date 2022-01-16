@@ -1,5 +1,7 @@
 import { Form } from './form';
+import { Header } from './header';
 
 export {
-  Form
+  Form,
+  Header
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { setItem } from '../../../services/localStorage';
+import { useNavigate, Link } from 'react-router-dom';
+import { setItem, getItem } from '../../../services/localStorage';
 import { Form } from '../../organisms';
 import { Styles } from './styles';
 
@@ -9,30 +9,39 @@ export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [formResponse, setFormResponse] = useState();
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    const user = getItem('user');
+
+    if (user) {
+      navigate('/jobs/all');
+    }
+  }, [navigate]);
 
   useEffect(() => {
     if (formResponse?.success) {
       const { data } = formResponse;
       
       setItem('user', data);
-      // useNavigate('/list-all-jobs')
+      navigate('/jobs/all');
     }
-  }, [formResponse]);
+  }, [formResponse, navigate]);
 
   return (
     <Styles>
       <Form 
-        request={{ method: "post", context: "accounts", endpoint: "login", data: { email } }}
+        request={{ method: 'post', context: 'accounts', endpoint: 'login', data: { email, password } }}
         fields={[{
-          type: "email",
-          id: "email",
-          label: "Informe seu email",
+          type: 'email',
+          id: 'email',
+          label: 'Informe seu email',
           value: email,
           onChange: setEmail
         }, {
-          type: "password",
-          id: "password",
-          label: "Informe sua senha",
+          type: 'password',
+          id: 'password',
+          label: 'Informe sua senha',
           value: password,
           onChange: setPassword
         }]}

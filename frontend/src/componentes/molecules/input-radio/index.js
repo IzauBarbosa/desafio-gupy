@@ -1,5 +1,5 @@
-import { Styles, Radio } from './styles'
 import { Input, Label } from '../../atoms';
+import { Styles, Radio } from './styles';
 
 export const InputRadio = ({ name, label, onChange, group }) => {
 
@@ -11,7 +11,12 @@ export const InputRadio = ({ name, label, onChange, group }) => {
         const { id, label, value } = field;
         return (
           <Radio key={`radio-${index}`}>
-            <Input id={id} name={name} type="radio" onChange={onChange} value={value} />
+            <Input 
+              id={id} 
+              name={name} 
+              type="radio" 
+              onChange={onChange} 
+              value={value} />
             <Label inputId={id}>{label}</Label>
           </Radio>
         )

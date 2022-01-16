@@ -3,7 +3,10 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
-import { SignIn, SignUp } from './componentes/pages';
+import { 
+  SignIn, 
+  SignUp,
+  Jobs } from './componentes/pages';
 
 function App() {
 
@@ -13,6 +16,9 @@ function App() {
         <Routes>
           <Route index element={<SignIn />} />
           <Route path="sign-up" element={<SignUp />} />
+          <Route path="jobs">
+            <Route path="all" element={<Jobs />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>

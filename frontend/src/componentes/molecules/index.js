@@ -1,7 +1,9 @@
-import { InputDefault } from './input-default';
+import { CardDefault } from './card-default';
 import { InputRadio } from './input-radio';
+import { InputDefault } from './input-default';
 
 export {
-  InputDefault,
-  InputRadio
+  CardDefault,
+  InputRadio,
+  InputDefault
 }
