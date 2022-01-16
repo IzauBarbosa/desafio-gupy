@@ -27,15 +27,25 @@ export const Form = ({ request, fields, callback  }) => {
         switch (type) {
           case 'radio':
             return (
-              <InputRadio key={`input-radio-${index}`} id={id} name={name} label={label} onChange={onChange} group={group} />
+              <InputRadio 
+                key={`input-radio-${index}`} 
+                {...{ id, name, label, onChange, group }} />
             );
           default:
             return (
-              <InputDefault key={`input-default-${index}`} id={id} label={label} type={type} onChange={onChange} value={value} />
+              <InputDefault 
+                key={`input-default-${index}`} 
+                {...{ id, label, type, onChange, value }} />
             );
         }
       })}
-      <Button type="submit" disabled={loading} loading={loading}>Enviar</Button>
+      <Button 
+        type="submit" 
+        disabled={loading} 
+        {...{ loading }}
+      >
+        Enviar
+      </Button>
     </Styles>
   )
 }

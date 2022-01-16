@@ -7,10 +7,8 @@ export const Input = ({ id, name, type, onChange, value }) => {
 
   return (
     <Styles
-      ref={inputEl} 
-      id={id}
-      name={name} 
-      type={type} 
+      {...{ id, name, type }}  
+      ref={inputEl}
       value={value || ''}
       onChange={() => onChange(inputEl?.current?.value)} />
   )

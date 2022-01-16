@@ -4,9 +4,9 @@ import {
   Route
 } from 'react-router-dom';
 import { 
-  SignIn, 
-  SignUp,
-  Jobs } from './componentes/pages';
+  Login, 
+  CreateAccount,
+  ArchiveJob } from './componentes/pages';
 
 function App() {
 
@@ -14,10 +14,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route index element={<SignIn />} />
-          <Route path="sign-up" element={<SignUp />} />
+          <Route index element={<Login />} />
+          <Route path="create-account" element={<CreateAccount />} />
           <Route path="jobs">
-            <Route path="all" element={<Jobs />} />
+            <Route path="all" element={<ArchiveJob />} />
           </Route>
         </Routes>
       </BrowserRouter>

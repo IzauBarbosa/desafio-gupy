@@ -11,7 +11,7 @@ import {
   Body,
   Footer } from './styles';
 
-export const CardDefault = ({ title, status, content, action }) => {
+export const CardDefault = ({ status, disabled, title, content, button }) => {
 
   return (
     <Styles>
@@ -21,24 +21,23 @@ export const CardDefault = ({ title, status, content, action }) => {
             <H3>{title}</H3>
           </Col>
           <Col>
-            <Bullet 
-              status={status} />
+            <Bullet {...{ status }} />
           </Col>
         </Row>
       </Header>
       {content && <Body>
         <Strong>{content}</Strong>
       </Body>}
-      <Footer>
+      {button && <Footer>
         <Button 
-          type={action.type} 
-          onClick={action.onClick} 
-          disabled={action.disabled} 
-          loading={action.loading} 
+          type="button" 
+          onClick={button.onClick} 
+          disabled={button.disabled || disabled} 
+          loading={button.loading} 
         >
-          {action.text}
+          {button.text}
         </Button>
-      </Footer>
+      </Footer>}
     </Styles>
   )
 }

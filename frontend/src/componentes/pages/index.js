@@ -1,9 +1,9 @@
-import { Jobs } from './jobs';
-import { SignIn } from './sign-in';
-import { SignUp } from './sign-up';
+import { CreateAccount } from './create-account';
+import { ArchiveJob } from './archive-job';
+import { Login } from './login';
 
 export {
-  Jobs,
-  SignIn,
-  SignUp
+  CreateAccount,
+  ArchiveJob,
+  Login,
 }

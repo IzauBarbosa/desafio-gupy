@@ -1,39 +1,24 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { setItem, getItem } from '../../../services/localStorage';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Form } from '../../organisms';
 import { Styles } from './styles';
 
-export const CreateAccount = () => {
+export const SignUp = ({ callback }) => {
   
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [type, setType] = useState('');
-  const [formResponse, setFormResponse] = useState();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const user = getItem('user');
-
-    if (user) {
-      navigate('/jobs/all');
-    }
-  }, [navigate]);
-  
-  useEffect(() => {
-    if (formResponse?.success) {
-      const { data } = formResponse;
-      
-      setItem('user', data);
-      navigate('/jobs/all');
-    }
-  }, [formResponse, navigate]);
 
   return (
     <Styles>
       <Form 
-        request={{ method: 'post', context: 'accounts', endpoint: 'create-account', data: { name, email, password, type } }}
+        request={{ 
+          method: 'post', 
+          context: 'accounts', 
+          endpoint: 'create-account', 
+          data: { name, email, password, type } 
+        }}
         fields={[{
           type: 'radio',
           name: 'type',
@@ -71,8 +56,7 @@ export const CreateAccount = () => {
           value: password,
           onChange: setPassword
         }]}
-        callback={setFormResponse}
-      />
+        {...{ callback }} />
       <Link to="/">Voltar</Link>
     </Styles>
   )

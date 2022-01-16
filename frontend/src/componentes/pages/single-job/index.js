@@ -1,10 +1,10 @@
 import { Styles } from './styles';
 
-export const Bullet = ({ status }) => {
+export const SingleJob = () => {
 
   return (
     <Styles>
-      {status}
+      
     </Styles>
   )
 }

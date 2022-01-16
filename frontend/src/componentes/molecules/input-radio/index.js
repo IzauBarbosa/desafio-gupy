@@ -12,12 +12,9 @@ export const InputRadio = ({ name, label, onChange, group }) => {
         return (
           <Radio key={`radio-${index}`}>
             <Input 
-              id={id} 
-              name={name} 
-              type="radio" 
-              onChange={onChange} 
-              value={value} />
-            <Label inputId={id}>{label}</Label>
+              {...{ id, name, onChange, value }}
+              type="radio" />
+            <Label htmlFor={id}>{label}</Label>
           </Radio>
         )
       })}
