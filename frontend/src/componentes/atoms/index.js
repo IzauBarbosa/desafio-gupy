@@ -6,9 +6,11 @@ import { H2 } from './h2';
 import { H3 } from './h3';
 import { Input } from './input';
 import { Label } from './label';
+import { Li } from './li';
 import { Paragraph } from './paragraph';
 import { Span } from './span';
 import { Strong } from './strong';
+import { Ul } from './ul';
 
 export {
   Bullet,
@@ -19,7 +21,9 @@ export {
   H3,
   Input,
   Label,
+  Li,
   Paragraph,
   Span,
-  Strong
+  Strong,
+  Ul
 }

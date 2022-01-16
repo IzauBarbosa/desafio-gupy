@@ -1,12 +1,12 @@
 import {
   BrowserRouter,
   Routes,
-  Route
-} from 'react-router-dom';
+  Route } from 'react-router-dom';
 import { 
-  Login, 
+  ArchiveJob,
   CreateAccount,
-  ArchiveJob } from './componentes/pages';
+  Login, 
+  SingleJob } from './componentes/pages';
 
 function App() {
 
@@ -18,6 +18,7 @@ function App() {
           <Route path="create-account" element={<CreateAccount />} />
           <Route path="jobs">
             <Route path="all" element={<ArchiveJob />} />
+            <Route path=":jobId" element={<SingleJob />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -46,7 +46,7 @@ export const ArchiveJob = () => {
 
   useEffect(() => {
     
-    const filterAndFormat = jobs.reduce((response, item) => {
+    const filterAndFormat = jobs.reduce((acc, item) => {
       
       let data = {
         status: item.status,
@@ -66,7 +66,7 @@ export const ArchiveJob = () => {
         data.disabled = ((item.applications || []).includes(user.id));
         data.button.onClick = () => handleApply(item.id);
         data.button.text = 'Aplicar para vaga';
-        response.push(data);
+        acc.push(data);
 
       } else if (
         user.type === 'interviewer' &&
@@ -76,17 +76,17 @@ export const ArchiveJob = () => {
         data.disabled = false;
         data.button.onClick = () => navigate(`/jobs/${item.id}`);
         data.button.text = 'Visualizar aplicações';
-        response.push(data);
+        acc.push(data);
 
       } else if (user.type === 'recruiter') {
         
         data.disabled = false;
         data.button.onClick = () => handlePublish(item.id);
         data.button.text = 'Publicar vaga';
-        response.push(data);
+        acc.push(data);
       }
 
-      return response;
+      return acc;
   
     }, []);
 
