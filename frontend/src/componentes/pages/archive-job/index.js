@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { requestToAPI, getItem } from '../../../services'
 import { Container, H2, Paragraph, PulseLoading, Strong } from '../../atoms'
 import { CardDefaultList } from '../../organisms'
+import { NotContent } from '../../molecules'
 import { Page } from '../../templates'
 import { Styles, Header, Body } from './styles'
 
@@ -17,10 +18,6 @@ export const ArchiveJob = () => {
     
     setJobs([]);
     setLoading(true);
-    
-    // Sorry for the hack
-    // await new Promise((resolve) => setTimeout(resolve, 5000));
-    // / Sorry for the hack
 
     const response = await requestToAPI(
       {
@@ -133,7 +130,7 @@ export const ArchiveJob = () => {
             )}
           </Header>
           <Body>
-            {(loading && <PulseLoading />) || <CardDefaultList items={jobsFiltered} />}
+            {(loading && <PulseLoading />) || (jobsFiltered.length && <CardDefaultList items={jobsFiltered} />) || <NotContent text="No momento não temos vagas disponíveis." />}
           </Body>
         </Container>
       </Page>

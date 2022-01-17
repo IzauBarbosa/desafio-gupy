@@ -24,7 +24,6 @@ export const Header = styled.div`
 
   > a {
     display: block;
-    font-weight: bold;
     color: inherit;
     text-decoration: none;
 

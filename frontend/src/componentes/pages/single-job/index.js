@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { requestToAPI, getItem } from '../../../services'
 import { Container, H2, Paragraph, PulseLoading, Strong } from '../../atoms'
-import { ListDefault } from '../../molecules'
+import { ListDefault, NotContent } from '../../molecules'
 import { Page } from '../../templates'
 import { Styles, Header, Body } from './styles'
 
@@ -60,7 +60,7 @@ export const SingleJob = () => {
             <Link to="/jobs/all">Voltar</Link>
           </Header>
           <Body>
-            {(loading && <PulseLoading />) || <ListDefault items={candidates} />}
+            {(loading && <PulseLoading />) || (candidates.length && <ListDefault items={candidates} />) || <NotContent text="No momento não temos candidatos para esta vaga." />}
           </Body>
         </Container>
       </Page>
