@@ -38,7 +38,7 @@ export const CreateJob = () => {
                 context: 'jobs',
                 endpoint: 'create-job',
                 data: { name: job },
-                enableToastDefault: false
+                enableToastDefault: false,
               }}
               fields={[
                 {

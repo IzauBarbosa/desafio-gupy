@@ -12,7 +12,13 @@ export const Styles = styled.span`
   animation: pulseanim 1s ease-in-out infinite;
 
   @keyframes pulseanim {
-    0% { transform: scale(0); opacity: 0.8;}
-    100% { transform: scale(1); opacity: 0;}
+    0% {
+      transform: scale(0);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
   }
 `

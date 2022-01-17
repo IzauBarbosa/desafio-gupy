@@ -19,7 +19,7 @@ export const SignIn = ({ callback, enableToastDefault }) => {
             context: 'accounts',
             endpoint: 'login',
             data: { email, password },
-            enableToastDefault
+            enableToastDefault,
           }}
           fields={[
             {

@@ -21,7 +21,7 @@ export const SignUp = ({ callback, enableToastDefault }) => {
             context: 'accounts',
             endpoint: 'create-account',
             data: { name, email, password, type },
-            enableToastDefault
+            enableToastDefault,
           }}
           fields={[
             {

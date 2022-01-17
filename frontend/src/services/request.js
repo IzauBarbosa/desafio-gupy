@@ -3,7 +3,11 @@ import { toast } from 'react-toastify'
 
 const API = 'http://localhost:8080/api/v1'
 
-export const requestToAPI = async (config, setLoading, enableToastDefault = true) => {
+export const requestToAPI = async (
+  config,
+  setLoading,
+  enableToastDefault = true,
+) => {
   setLoading(true)
   const { method, context, endpoint, data } = config
 
@@ -14,18 +18,15 @@ export const requestToAPI = async (config, setLoading, enableToastDefault = true
       data,
     })
 
-    if (enableToastDefault) { 
-      toast.promise(
-        request,
-        {
-          pending: 'Aguardando resposta.',
-          success: 'Tudo certo! 👌',
-          error: 'Ops, algo deu errado. 🤯'
-        }
-      );
+    if (enableToastDefault) {
+      toast.promise(request, {
+        pending: 'Aguardando resposta.',
+        success: 'Tudo certo! 👌',
+        error: 'Ops, algo deu errado. 🤯',
+      })
     }
 
-    const response = await request;
+    const response = await request
 
     setLoading(false)
     return {
@@ -33,18 +34,18 @@ export const requestToAPI = async (config, setLoading, enableToastDefault = true
       data: response?.data?.data,
     }
   } catch (error) {
-    const errors = error?.response?.data?.message ?? [];
+    const errors = error?.response?.data?.message ?? []
 
     if (errors.length) {
       if (typeof errors !== 'string') {
-        errors.forEach(err => {
-          toast.error(err);
-        });
+        errors.forEach((err) => {
+          toast.error(err)
+        })
       }
     } else {
-      toast.error('Servidores indisponíveis. 🤯');
+      toast.error('Servidores indisponíveis. 🤯')
     }
   }
 
-  setLoading(false);
+  setLoading(false)
 }

@@ -11,7 +11,10 @@ export const Form = ({ request, fields, link, callback }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const { method, context, endpoint, data, enableToastDefault } = { enableToastDefault: true, ...request }
+    const { method, context, endpoint, data, enableToastDefault } = {
+      enableToastDefault: true,
+      ...request,
+    }
 
     const response = await requestToAPI(
       {
@@ -21,15 +24,15 @@ export const Form = ({ request, fields, link, callback }) => {
         data,
       },
       setLoading,
-      enableToastDefault
+      enableToastDefault,
     )
-    
+
     if ((fields || []).length) {
-      fields.forEach(field => {
+      fields.forEach((field) => {
         if (field.reset && field.type !== 'radio') {
-          field.onChange('');
+          field.onChange('')
         }
-      });
+      })
     }
 
     callback(response)

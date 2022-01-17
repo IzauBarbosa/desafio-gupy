@@ -15,9 +15,8 @@ export const ArchiveJob = () => {
   const navigate = useNavigate()
 
   const getJobs = useCallback(async () => {
-    
-    setJobs([]);
-    setLoading(true);
+    setJobs([])
+    setLoading(true)
 
     const response = await requestToAPI(
       {
@@ -41,9 +40,9 @@ export const ArchiveJob = () => {
           data: { accountId: user.id },
         },
         setLoading,
-        false
+        false,
       )
-      
+
       if (response?.success) {
         getJobs()
       }
@@ -60,9 +59,9 @@ export const ArchiveJob = () => {
           endpoint: `publish-job/${jobId}`,
         },
         setLoading,
-        false
+        false,
       )
-      
+
       if (response?.success) {
         getJobs()
       }
@@ -130,7 +129,12 @@ export const ArchiveJob = () => {
             )}
           </Header>
           <Body>
-            {(loading && <PulseLoading />) || (jobsFiltered.length && <CardDefaultList items={jobsFiltered} />) || <NotContent text="No momento não temos vagas disponíveis." />}
+            {(loading && <PulseLoading />) ||
+              (jobsFiltered.length && (
+                <CardDefaultList items={jobsFiltered} />
+              )) || (
+                <NotContent text="No momento não temos vagas disponíveis." />
+              )}
           </Body>
         </Container>
       </Page>

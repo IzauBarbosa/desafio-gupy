@@ -25,7 +25,7 @@ export const SingleJob = () => {
         },
         setLoading,
       )
-      
+
       if (response?.success) {
         const format = (response?.data || []).reduce(
           (acc, item) => [
@@ -45,7 +45,7 @@ export const SingleJob = () => {
           ],
           [],
         )
-  
+
         setCandidates(format)
       } else {
         navigate('/jobs/all')
@@ -64,7 +64,10 @@ export const SingleJob = () => {
             <Link to="/jobs/all">Voltar</Link>
           </Header>
           <Body>
-            {(loading && <PulseLoading />) || (candidates.length && <ListDefault items={candidates} />) || <NotContent text="No momento não temos candidatos para esta vaga." />}
+            {(loading && <PulseLoading />) ||
+              (candidates.length && <ListDefault items={candidates} />) || (
+                <NotContent text="No momento não temos candidatos para esta vaga." />
+              )}
           </Body>
         </Container>
       </Page>
