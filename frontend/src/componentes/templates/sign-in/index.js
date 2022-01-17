@@ -35,6 +35,7 @@ export const SignIn = ({ callback }) => {
               label: 'Informe sua senha',
               value: password,
               required: 'required',
+              reset: true,
               onChange: setPassword,
             },
           ]}

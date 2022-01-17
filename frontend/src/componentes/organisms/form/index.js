@@ -21,6 +21,14 @@ export const Form = ({ request, fields, link, callback }) => {
       },
       setLoading,
     )
+    
+    if ((fields || []).length) {
+      fields.forEach(field => {
+        if (field.reset && field.type !== 'radio') {
+          field.onChange('');
+        }
+      });
+    }
 
     callback(response)
   }
