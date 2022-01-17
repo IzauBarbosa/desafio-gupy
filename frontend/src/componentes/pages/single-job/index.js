@@ -25,27 +25,31 @@ export const SingleJob = () => {
         },
         setLoading,
       )
-
-      const format = (response?.data || []).reduce(
-        (acc, item) => [
-          ...acc,
-          {
-            content: (
-              <>
-                <Paragraph>
-                  <Strong>Nome:</Strong> {item.name}
-                </Paragraph>
-                <Paragraph>
-                  <Strong>Email:</Strong> {item.email}
-                </Paragraph>
-              </>
-            ),
-          },
-        ],
-        [],
-      )
-
-      setCandidates(format)
+      
+      if (response?.success) {
+        const format = (response?.data || []).reduce(
+          (acc, item) => [
+            ...acc,
+            {
+              content: (
+                <>
+                  <Paragraph>
+                    <Strong>Nome:</Strong> {item.name}
+                  </Paragraph>
+                  <Paragraph>
+                    <Strong>Email:</Strong> {item.email}
+                  </Paragraph>
+                </>
+              ),
+            },
+          ],
+          [],
+        )
+  
+        setCandidates(format)
+      } else {
+        navigate('/jobs/all')
+      }
     }
 
     user?.type === 'interviewer' ? request() : navigate('/jobs/all')

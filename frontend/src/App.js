@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import {
@@ -23,6 +23,7 @@ function App() {
               <Route path=":jobId" element={<SingleJob />} />
               <Route path="create" element={<CreateJob />} />
             </Route>
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </BrowserRouter>
         <ToastContainer />

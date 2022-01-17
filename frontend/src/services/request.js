@@ -34,11 +34,13 @@ export const requestToAPI = async (config, setLoading, enableToastDefault = true
     }
   } catch (error) {
     const errors = error?.response?.data?.message ?? [];
-    
+
     if (errors.length) {
-      errors.forEach(err => {
-        toast.error(err);
-      });
+      if (typeof errors !== 'string') {
+        errors.forEach(err => {
+          toast.error(err);
+        });
+      }
     } else {
       toast.error('Servidores indisponíveis. 🤯');
     }
