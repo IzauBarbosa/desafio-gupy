@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { Form } from '../../organisms'
 import { Styles } from './styles'
 
@@ -7,10 +6,10 @@ export const SignUp = ({ callback }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [type, setType] = useState('')
+  const [type, setType] = useState('candidate')
 
   return (
-    <Styles>
+    <Styles className="sign-up">
       <Form
         request={{
           method: 'post',
@@ -28,16 +27,19 @@ export const SignUp = ({ callback }) => {
                 id: 'type-1',
                 label: 'Candidato',
                 value: 'candidate',
+                checked: type === 'candidate',
               },
               {
                 id: 'type-2',
                 label: 'Entrevistador',
                 value: 'interviewer',
+                checked: type === 'interviewer',
               },
               {
                 id: 'type-3',
                 label: 'Recrutador',
                 value: 'recruiter',
+                checked: type === 'recruiter',
               },
             ],
             onChange: setType,
@@ -47,6 +49,7 @@ export const SignUp = ({ callback }) => {
             id: 'name',
             label: 'Informe seu nome',
             value: name,
+            required: 'required',
             onChange: setName,
           },
           {
@@ -54,19 +57,24 @@ export const SignUp = ({ callback }) => {
             id: 'email',
             label: 'Informe seu email',
             value: email,
+            required: 'required',
             onChange: setEmail,
           },
           {
             type: 'password',
             id: 'password',
             label: 'Informe sua senha',
+            required: 'required',
             value: password,
             onChange: setPassword,
           },
         ]}
+        link={{
+          to: '/',
+          text: 'Voltar'
+        }}
         {...{ callback }}
       />
-      <Link to="/">Voltar</Link>
     </Styles>
   )
 }

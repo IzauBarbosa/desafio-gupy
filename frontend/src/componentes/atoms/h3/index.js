@@ -1,5 +1,5 @@
 import { Styles } from './styles'
 
-export const H3 = ({ children }) => {
-  return <Styles>{children}</Styles>
+export const H3 = ({ size, children }) => {
+  return <Styles {...{ size }} className="title">{children}</Styles>
 }

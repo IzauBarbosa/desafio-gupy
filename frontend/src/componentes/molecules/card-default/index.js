@@ -1,36 +1,32 @@
-import { Bullet, Button, H3, Strong } from '../../atoms'
-import { Styles, Row, Col, Header, Body, Footer } from './styles'
+import { Button, CardShadow, H3 } from '../../atoms'
+import { Styles, Header, Body, Footer } from './styles'
 
-export const CardDefault = ({ status, disabled, title, content, button }) => {
+export const CardDefault = ({ disabled, title, content, button }) => {
+
   return (
-    <Styles>
-      <Header>
-        <Row>
-          <Col>
-            <H3>{title}</H3>
-          </Col>
-          <Col>
-            <Bullet {...{ status }} />
-          </Col>
-        </Row>
-      </Header>
-      {content && (
-        <Body>
-          <Strong>{content}</Strong>
-        </Body>
-      )}
-      {button && (
-        <Footer>
-          <Button
-            type="button"
-            onClick={button.onClick}
-            disabled={button.disabled || disabled}
-            loading={button.loading}
-          >
-            {button.text}
-          </Button>
-        </Footer>
-      )}
+    <Styles className="card-default">
+      <CardShadow>
+        <Header className="header">
+          <H3>{title}</H3>
+        </Header>
+        {content && (
+          <Body className="body">
+            {content}
+          </Body>
+        )}
+        {button && (
+          <Footer className="footer">
+            <Button
+              type="button"
+              onClick={button.onClick}
+              disabled={disabled}
+              loading={button.loading}
+            >
+              {button.text}
+            </Button>
+          </Footer>
+        )}
+      </CardShadow>
     </Styles>
   )
 }

@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { Form } from '../../organisms'
 import { Styles } from './styles'
 
@@ -8,7 +7,7 @@ export const SignIn = ({ callback }) => {
   const [password, setPassword] = useState('')
 
   return (
-    <Styles>
+    <Styles className="sign-in">
       <Form
         request={{
           method: 'post',
@@ -22,6 +21,7 @@ export const SignIn = ({ callback }) => {
             id: 'email',
             label: 'Informe seu email',
             value: email,
+            required: 'required',
             onChange: setEmail,
           },
           {
@@ -29,12 +29,16 @@ export const SignIn = ({ callback }) => {
             id: 'password',
             label: 'Informe sua senha',
             value: password,
+            required: 'required',
             onChange: setPassword,
           },
         ]}
+        link={{
+          to: '/create-account',
+          text: 'Cadastre-se'
+        }}
         {...{ callback }}
       />
-      <Link to="/create-account">Cadastre-se</Link>
     </Styles>
   )
 }

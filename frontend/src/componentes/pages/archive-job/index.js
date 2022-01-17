@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { getItem } from '../../../services/localStorage'
-import { requestToAPI } from '../../../services/request'
+import { useNavigate, Link } from 'react-router-dom'
+import { requestToAPI, getItem } from '../../../services'
+import { Container, H2, Paragraph, Strong } from '../../atoms'
 import { CardDefaultList } from '../../organisms'
-import { Archive } from '../../templates'
-import { Styles } from './styles'
+import { Page } from '../../templates'
+import { Styles, Header, Body } from './styles'
 
 export const ArchiveJob = () => {
   const [user] = useState(getItem('user'))
@@ -62,9 +62,17 @@ export const ArchiveJob = () => {
   useEffect(() => {
     const filterAndFormat = jobs.reduce((acc, item) => {
       let data = {
-        status: item.status,
         title: item.name,
-        content: item.applications.length,
+        content: (<>
+          <Paragraph>
+            <Strong>Status: </Strong> 
+            {item.status === 'published' ? 'Publicado' : 'Aguardando'}
+          </Paragraph>
+          <Paragraph>
+            <Strong>Quantidade de Aplicações: </Strong> 
+            {item.applications.length}
+          </Paragraph>
+        </>),
         button: {
           disabled: loading,
           loading: loading,
@@ -82,7 +90,7 @@ export const ArchiveJob = () => {
         data.button.text = 'Visualizar aplicações'
         acc.push(data)
       } else if (user.type === 'recruiter') {
-        data.disabled = false
+        data.disabled = item.status === 'published'
         data.button.onClick = () => handlePublish(item.id)
         data.button.text = 'Publicar vaga'
         acc.push(data)
@@ -99,10 +107,18 @@ export const ArchiveJob = () => {
   }, [user, navigate, getJobs])
 
   return (
-    <Styles>
-      <Archive>
-        <CardDefaultList items={jobsFiltered} />
-      </Archive>
+    <Styles className="archive-job">
+      <Page>
+        <Container size="large">
+          <Header>
+            <H2 size="large">Lista de vagas</H2>
+            {user?.type === 'recruiter' && <Link to="/jobs/create">Cadastrar</Link>}
+          </Header>
+          <Body>
+            <CardDefaultList items={jobsFiltered} />
+          </Body>
+        </Container>
+      </Page>
     </Styles>
   )
 }

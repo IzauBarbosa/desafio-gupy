@@ -3,11 +3,11 @@ import { Styles, Row, Col } from './styles'
 
 export const CardDefaultList = ({ items }) => {
   return (
-    <Styles>
-      <Row>
+    <Styles className="card-default-list">
+      <Row className="row">
         {(items || []).map((item, index) => {
           return (
-            <Col key={`card-default-list-${index}`}>
+            <Col className="col" key={`card-default-list-${index}`}>
               <CardDefault {...item} />
             </Col>
           )

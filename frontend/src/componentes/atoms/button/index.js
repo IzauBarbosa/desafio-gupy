@@ -1,12 +1,14 @@
+import { Span } from '../span'
 import { Styles } from './styles'
 
-export const Button = ({ type, onClick, disabled, loading, children }) => {
+export const Button = ({ type, onClick, disabled, loading, children, theme }) => {
+
   return (
     <Styles
       {...{ type, onClick, disabled }}
-      className={`${loading && 'loading'}`}
+      className={`button ${theme || 'primary'} ${loading ? 'loading' : ''} `}
     >
-      {children}
+      <Span>{children}</Span>
     </Styles>
   )
 }

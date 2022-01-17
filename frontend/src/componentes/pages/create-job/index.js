@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
-import { getItem } from '../../../services/localStorage'
+import { useNavigate } from 'react-router-dom'
+import { getItem } from '../../../services'
+import { Container, H2 } from '../../atoms'
 import { Form } from '../../organisms'
-import { Styles } from './styles'
+import { Page } from '../../templates'
+import { Styles, Header, Body } from './styles'
 
 export const CreateJob = () => {
   const [user] = useState(getItem('user'))
@@ -23,26 +25,39 @@ export const CreateJob = () => {
   }, [registerResponse, navigate])
 
   return (
-    <Styles>
-      <Form
-        request={{
-          method: 'post',
-          context: 'jobs',
-          endpoint: 'create-job',
-          data: { name: job },
-        }}
-        fields={[
-          {
-            type: 'text',
-            id: 'job',
-            label: 'Informe o nome',
-            value: job,
-            onChange: setJob,
-          },
-        ]}
-        callback={setRegisterResponse}
-      />
-      <Link to="/jobs/all">Voltar</Link>
+    <Styles className="create-job">
+      <Page>
+        <Container size="small">
+          <Header>
+            <H2 size="large">Cadastrar Vaga</H2>
+          </Header>
+          <Body>
+            <Form
+              request={{
+                method: 'post',
+                context: 'jobs',
+                endpoint: 'create-job',
+                data: { name: job },
+              }}
+              fields={[
+                {
+                  type: 'text',
+                  id: 'job',
+                  label: 'Informe o nome',
+                  value: job,
+                  required: 'required',
+                  onChange: setJob,
+                },
+              ]}
+              link={{
+                to: '/jobs/all',
+                text: 'Voltar'
+              }}
+              callback={setRegisterResponse} 
+            />
+          </Body>
+        </Container>
+      </Page>
     </Styles>
   )
 }

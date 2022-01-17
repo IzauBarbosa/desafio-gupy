@@ -1,5 +1,5 @@
 import { Styles } from './styles'
 
-export const Paragraph = ({ children }) => {
-  return <Styles>{children}</Styles>
+export const Paragraph = ({ size, children }) => {
+  return <Styles {...{ size }} className="paragraph">{children}</Styles>
 }

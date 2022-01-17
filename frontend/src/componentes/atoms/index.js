@@ -1,5 +1,6 @@
 import { Bullet } from './bullet'
 import { Button } from './button'
+import { CardShadow } from './card-shadow'
 import { Container } from './container'
 import { H1 } from './h1'
 import { H2 } from './h2'
@@ -15,6 +16,7 @@ import { Ul } from './ul'
 export {
   Bullet,
   Button,
+  CardShadow,
   Container,
   H1,
   H2,

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
-import { getItem } from '../../../services/localStorage'
-import { requestToAPI } from '../../../services/request'
-import { Paragraph } from '../../atoms'
+import { requestToAPI, getItem } from '../../../services'
+import { Container, H2, Paragraph, Strong } from '../../atoms'
 import { ListDefault } from '../../molecules'
-import { Styles } from './styles'
+import { Page } from '../../templates'
+import { Styles, Header, Body } from './styles'
 
 export const SingleJob = () => {
   const [user] = useState(getItem('user'))
@@ -32,8 +32,12 @@ export const SingleJob = () => {
           {
             content: (
               <>
-                <Paragraph>{item.name}</Paragraph>
-                <Paragraph>{item.email}</Paragraph>
+                <Paragraph>
+                  <Strong>Nome:</Strong> {item.name}
+                </Paragraph>
+                <Paragraph>
+                  <Strong>Email:</Strong> {item.email}
+                </Paragraph>
               </>
             ),
           },
@@ -48,9 +52,18 @@ export const SingleJob = () => {
   }, [user, params, navigate])
 
   return (
-    <Styles>
-      <ListDefault items={candidates} />
-      <Link to="/jobs/all">Voltar</Link>
+    <Styles className="single-job">
+      <Page>
+        <Container size="large">
+          <Header>
+            <H2 size="large">Lista de candidatos</H2>
+            <Link to="/jobs/all">Voltar</Link>
+          </Header>
+          <Body>
+            <ListDefault items={candidates} />
+          </Body>
+        </Container>
+      </Page>
     </Styles>
   )
 }

@@ -1,5 +1,5 @@
 import { Styles } from './styles'
 
 export const Ul = ({ children }) => {
-  return <Styles>{children}</Styles>
+  return <Styles className="ul">{children}</Styles>
 }

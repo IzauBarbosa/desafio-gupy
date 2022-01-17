@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { setItem, getItem } from '../../../services/localStorage'
+import { setItem, getItem } from '../../../services'
+import { Container } from '../../atoms'
 import { SignIn } from '../../templates'
 import { Styles } from './styles'
 
@@ -25,8 +26,10 @@ export const Login = () => {
   }, [loginResponse, navigate])
 
   return (
-    <Styles>
-      <SignIn callback={setLoginResponse} />
+    <Styles className="login">
+      <Container size="small">
+        <SignIn callback={setLoginResponse} />
+      </Container>
     </Styles>
   )
 }

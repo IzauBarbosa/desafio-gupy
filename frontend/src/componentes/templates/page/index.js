@@ -1,11 +1,11 @@
 import { Header } from '../../organisms'
 import { Styles, Body } from './styles'
 
-export const Single = ({ children }) => {
+export const Page = ({ children }) => {
   return (
-    <Styles>
+    <Styles className="page">
       <Header />
-      <Body>{children}</Body>
+      <Body className="body">{children}</Body>
     </Styles>
   )
 }

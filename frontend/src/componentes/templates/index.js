@@ -1,6 +1,5 @@
-import { Archive } from './archive'
+import { Page } from './page'
 import { SignIn } from './sign-in'
 import { SignUp } from './sign-up'
-import { Single } from './single'
 
-export { Archive, SignIn, SignUp, Single }
+export { Page, SignIn, SignUp }
