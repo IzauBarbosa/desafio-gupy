@@ -9,6 +9,7 @@ import { Input } from './input'
 import { Label } from './label'
 import { Li } from './li'
 import { Logo } from './logo'
+import { PulseLoading } from './pulse-loading'
 import { Paragraph } from './paragraph'
 import { Span } from './span'
 import { Strong } from './strong'
@@ -26,6 +27,7 @@ export {
   Label,
   Li,
   Logo,
+  PulseLoading,
   Paragraph,
   Span,
   Strong,

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { requestToAPI, getItem } from '../../../services'
-import { Container, H2, Paragraph, Strong } from '../../atoms'
+import { Container, H2, Paragraph, PulseLoading, Strong } from '../../atoms'
 import { CardDefaultList } from '../../organisms'
 import { Page } from '../../templates'
 import { Styles, Header, Body } from './styles'
@@ -119,7 +119,7 @@ export const ArchiveJob = () => {
             )}
           </Header>
           <Body>
-            <CardDefaultList items={jobsFiltered} />
+            {(loading && <PulseLoading />) || <CardDefaultList items={jobsFiltered} />}
           </Body>
         </Container>
       </Page>

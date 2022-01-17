@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { requestToAPI, getItem } from '../../../services'
-import { Container, H2, Paragraph, Strong } from '../../atoms'
+import { Container, H2, Paragraph, PulseLoading, Strong } from '../../atoms'
 import { ListDefault } from '../../molecules'
 import { Page } from '../../templates'
 import { Styles, Header, Body } from './styles'
@@ -60,7 +60,7 @@ export const SingleJob = () => {
             <Link to="/jobs/all">Voltar</Link>
           </Header>
           <Body>
-            <ListDefault items={candidates} />
+            {(loading && <PulseLoading />) || <ListDefault items={candidates} />}
           </Body>
         </Container>
       </Page>
