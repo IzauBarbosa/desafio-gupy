@@ -10,7 +10,7 @@ export const Styles = styled.button`
   padding: ${convertPxToRem(12)} ${convertPxToRem(24)};
   font-size: ${convertPxToRem(12)};
   text-transform: uppercase;
-  border: ${convertPxToRem(2)} solid;
+  border: 0;
   border-radius: ${convertPxToRem(8)};
   cursor: pointer;
   transition: background 0.35s linear, border 0.35s linear;
@@ -23,20 +23,17 @@ export const Styles = styled.button`
   &.primary {
     color: ${colors.neutralWhiteLight};
     background: ${colors.primary};
-    border-color: ${colors.primaryDark};
     
-    &:hover {
-      background: ${colors.primaryDark};
-      border-color: ${colors.primary};
+    &:hover:not(:disabled) {
+      background: ${colors.secondary};
     }
   }
 
   &.default {
     color: ${colors.neutralBlackLight};
     background: ${colors.neutralWhiteLight};
-    border-color: ${colors.neutralWhiteBase};
     
-    &:hover {
+    &:hover:not(:disabled) {
       background: ${colors.neutralWhiteBase};
     }
   }

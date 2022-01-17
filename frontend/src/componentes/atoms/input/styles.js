@@ -24,7 +24,7 @@ export const Styles = styled.input`
   outline: none;
 
   &:focus {
-    box-shadow: 0 0 ${convertPxToRem(4)} ${colors.primaryLight};
+    box-shadow: 0 0 ${convertPxToRem(4)} ${colors.secondaryLight};
     
     &:invalid {
       box-shadow: 0 0 ${convertPxToRem(4)} red;

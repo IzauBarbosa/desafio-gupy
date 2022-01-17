@@ -13,7 +13,12 @@ export const Header = styled.div`
 
   > a {
     display: block;
-    color: ${colors.primary};
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `
 
