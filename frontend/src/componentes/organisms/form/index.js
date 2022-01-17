@@ -11,7 +11,8 @@ export const Form = ({ request, fields, link, callback }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const { method, context, endpoint, data } = request
+    const { method, context, endpoint, data, enableToastDefault } = { enableToastDefault: true, ...request }
+
     const response = await requestToAPI(
       {
         method,
@@ -20,6 +21,7 @@ export const Form = ({ request, fields, link, callback }) => {
         data,
       },
       setLoading,
+      enableToastDefault
     )
     
     if ((fields || []).length) {

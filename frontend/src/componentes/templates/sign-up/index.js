@@ -3,7 +3,7 @@ import { Logo } from '../../atoms'
 import { Form } from '../../organisms'
 import { Styles, Header, Body } from './styles'
 
-export const SignUp = ({ callback }) => {
+export const SignUp = ({ callback, enableToastDefault }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -21,6 +21,7 @@ export const SignUp = ({ callback }) => {
             context: 'accounts',
             endpoint: 'create-account',
             data: { name, email, password, type },
+            enableToastDefault
           }}
           fields={[
             {

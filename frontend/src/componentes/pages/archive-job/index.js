@@ -10,10 +10,18 @@ export const ArchiveJob = () => {
   const [user] = useState(getItem('user'))
   const [jobs, setJobs] = useState([])
   const [jobsFiltered, setJobsFiltered] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
 
   const getJobs = useCallback(async () => {
+    
+    setJobs([]);
+    setLoading(true);
+    
+    // Sorry for the hack
+    // await new Promise((resolve) => setTimeout(resolve, 5000));
+    // / Sorry for the hack
+
     const response = await requestToAPI(
       {
         method: 'get',
@@ -28,7 +36,7 @@ export const ArchiveJob = () => {
 
   const handleApply = useCallback(
     async (jobId) => {
-      await requestToAPI(
+      const response = await requestToAPI(
         {
           method: 'post',
           context: 'jobs',
@@ -36,25 +44,31 @@ export const ArchiveJob = () => {
           data: { accountId: user.id },
         },
         setLoading,
+        false
       )
-
-      getJobs()
+      
+      if (response?.success) {
+        getJobs()
+      }
     },
     [user, getJobs],
   )
 
   const handlePublish = useCallback(
     async (jobId) => {
-      await requestToAPI(
+      const response = await requestToAPI(
         {
           method: 'patch',
           context: 'jobs',
           endpoint: `publish-job/${jobId}`,
         },
         setLoading,
+        false
       )
-
-      getJobs()
+      
+      if (response?.success) {
+        getJobs()
+      }
     },
     [getJobs],
   )

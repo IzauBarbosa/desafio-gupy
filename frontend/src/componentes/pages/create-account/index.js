@@ -28,7 +28,7 @@ export const CreateAccount = () => {
   return (
     <Styles className="create-account">
       <Container size="small">
-        <SignUp callback={setRegisterResponse} />
+        <SignUp callback={setRegisterResponse} enableToastDefault={false} />
       </Container>
     </Styles>
   )

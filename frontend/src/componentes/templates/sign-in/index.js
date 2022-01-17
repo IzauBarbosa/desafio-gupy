@@ -3,7 +3,7 @@ import { Logo } from '../../atoms'
 import { Form } from '../../organisms'
 import { Styles, Header, Body } from './styles'
 
-export const SignIn = ({ callback }) => {
+export const SignIn = ({ callback, enableToastDefault }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -19,6 +19,7 @@ export const SignIn = ({ callback }) => {
             context: 'accounts',
             endpoint: 'login',
             data: { email, password },
+            enableToastDefault
           }}
           fields={[
             {

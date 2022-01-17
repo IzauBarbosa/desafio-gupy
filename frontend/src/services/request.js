@@ -3,7 +3,7 @@ import { toast } from 'react-toastify'
 
 const API = 'http://localhost:8080/api/v1'
 
-export const requestToAPI = async (config, setLoading) => {
+export const requestToAPI = async (config, setLoading, enableToastDefault = true) => {
   setLoading(true)
   const { method, context, endpoint, data } = config
 
@@ -14,14 +14,16 @@ export const requestToAPI = async (config, setLoading) => {
       data,
     })
 
-    toast.promise(
-      request,
-      {
-        pending: 'Aguardando resposta.',
-        success: 'Tudo certo! 👌',
-        error: 'Ops, algo deu errado. 🤯'
-      }
-    )
+    if (enableToastDefault) { 
+      toast.promise(
+        request,
+        {
+          pending: 'Aguardando resposta.',
+          success: 'Tudo certo! 👌',
+          error: 'Ops, algo deu errado. 🤯'
+        }
+      );
+    }
 
     const response = await request;
 
@@ -31,11 +33,16 @@ export const requestToAPI = async (config, setLoading) => {
       data: response?.data?.data,
     }
   } catch (error) {
-    console.log(error)
+    const errors = error?.response?.data?.message ?? [];
+    
+    if (errors.length) {
+      errors.forEach(err => {
+        toast.error(err);
+      });
+    } else {
+      toast.error('Servidores indisponíveis. 🤯');
+    }
   }
 
-  setLoading(false)
-  return {
-    success: false,
-  }
+  setLoading(false);
 }

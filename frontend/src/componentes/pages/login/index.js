@@ -28,7 +28,7 @@ export const Login = () => {
   return (
     <Styles className="login">
       <Container size="small">
-        <SignIn callback={setLoginResponse} />
+        <SignIn callback={setLoginResponse} enableToastDefault={false} />
       </Container>
     </Styles>
   )
