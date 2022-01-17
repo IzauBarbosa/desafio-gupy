@@ -12,13 +12,13 @@ export const Styles = styled.span`
   background: ${({ status }) => {
     switch (status) {
       case 'success':
-        return "#28a745";
+        return '#28a745'
       case 'warning':
-        return "#ffc107";
+        return '#ffc107'
       case 'danger':
-        return "#dc3545";
+        return '#dc3545'
       default:
-        return colors.primary;
+        return colors.primary
     }
-  }}
+  }};
 `

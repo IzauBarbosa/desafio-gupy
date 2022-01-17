@@ -5,15 +5,15 @@ export const Styles = styled.h2`
   font-size: ${({ size }) => {
     switch (size) {
       case 'big':
-        return convertPxToRem(48);
+        return convertPxToRem(48)
       case 'large':
-        return convertPxToRem(36);
+        return convertPxToRem(36)
       case 'medium':
-        return convertPxToRem(24);
+        return convertPxToRem(24)
       case 'small':
-        return convertPxToRem(18);
+        return convertPxToRem(18)
       default:
-        return convertPxToRem(22);
+        return convertPxToRem(22)
     }
-  }}
+  }};
 `

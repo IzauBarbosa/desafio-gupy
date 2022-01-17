@@ -1,8 +1,14 @@
 import { Span } from '../span'
 import { Styles } from './styles'
 
-export const Button = ({ type, onClick, disabled, loading, children, theme }) => {
-
+export const Button = ({
+  type,
+  onClick,
+  disabled,
+  loading,
+  children,
+  theme,
+}) => {
   return (
     <Styles
       {...{ type, onClick, disabled }}

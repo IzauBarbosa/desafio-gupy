@@ -3,10 +3,11 @@ import { convertPxToRem } from '../../../helpers'
 import { colors } from '../../../theme'
 
 export const Styles = styled.input`
-  
-  &[type="text"],
-  &[type="email"],
-  &[type="password"] {
+  outline: none;
+
+  &[type='text'],
+  &[type='email'],
+  &[type='password'] {
     display: block;
     width: 100%;
     padding: ${convertPxToRem(16)} ${convertPxToRem(24)};
@@ -16,19 +17,16 @@ export const Styles = styled.input`
     border-radius: ${convertPxToRem(8)};
   }
 
-  &[type="radio"],
-  &[type="checkbox"] {
+  &[type='radio'],
+  &[type='checkbox'] {
     display: none;
   }
 
-  outline: none;
-
   &:focus {
-    box-shadow: 0 0 ${convertPxToRem(4)} ${colors.secondaryLight};
-    
+    box-shadow: 0 0 ${convertPxToRem(4)} ${colors.secondary};
+
     &:invalid {
       box-shadow: 0 0 ${convertPxToRem(4)} red;
     }
   }
-
 `

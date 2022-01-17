@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { convertPxToRem } from '../../../helpers'
-import { colors } from '../../../theme'
 
 export const Styles = styled.div`
   .list-default {

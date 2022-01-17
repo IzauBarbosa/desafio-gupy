@@ -63,16 +63,18 @@ export const ArchiveJob = () => {
     const filterAndFormat = jobs.reduce((acc, item) => {
       let data = {
         title: item.name,
-        content: (<>
-          <Paragraph>
-            <Strong>Status: </Strong> 
-            {item.status === 'published' ? 'Publicado' : 'Aguardando'}
-          </Paragraph>
-          <Paragraph>
-            <Strong>Quantidade de Aplicações: </Strong> 
-            {item.applications.length}
-          </Paragraph>
-        </>),
+        content: (
+          <>
+            <Paragraph>
+              <Strong>Status: </Strong>
+              {item.status === 'published' ? 'Publicado' : 'Aguardando'}
+            </Paragraph>
+            <Paragraph>
+              <Strong>Quantidade de Aplicações: </Strong>
+              {item.applications.length}
+            </Paragraph>
+          </>
+        ),
         button: {
           disabled: loading,
           loading: loading,
@@ -112,7 +114,9 @@ export const ArchiveJob = () => {
         <Container size="large">
           <Header>
             <H2 size="large">Lista de vagas</H2>
-            {user?.type === 'recruiter' && <Link to="/jobs/create">Cadastrar</Link>}
+            {user?.type === 'recruiter' && (
+              <Link to="/jobs/create">Cadastrar</Link>
+            )}
           </Header>
           <Body>
             <CardDefaultList items={jobsFiltered} />

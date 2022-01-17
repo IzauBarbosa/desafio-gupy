@@ -51,9 +51,9 @@ export const CreateJob = () => {
               ]}
               link={{
                 to: '/jobs/all',
-                text: 'Voltar'
+                text: 'Voltar',
               }}
-              callback={setRegisterResponse} 
+              callback={setRegisterResponse}
             />
           </Body>
         </Container>

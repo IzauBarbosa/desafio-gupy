@@ -23,7 +23,7 @@ export const Styles = styled.button`
   &.primary {
     color: ${colors.neutralWhiteLight};
     background: ${colors.primary};
-    
+
     &:hover:not(:disabled) {
       background: ${colors.secondary};
     }
@@ -32,7 +32,7 @@ export const Styles = styled.button`
   &.default {
     color: ${colors.neutralBlackLight};
     background: ${colors.neutralWhiteLight};
-    
+
     &:hover:not(:disabled) {
       background: ${colors.neutralWhiteBase};
     }
@@ -50,7 +50,7 @@ export const Styles = styled.button`
       position: absolute;
       top: 0;
       bottom: 0;
-      background: rgba(0,0,0,.25);
+      background: rgba(0, 0, 0, 0.25);
       animation: loading 1s infinite alternate;
 
       @keyframes loading {

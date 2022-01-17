@@ -8,5 +8,5 @@ export const breakpoint = {
   tabletPortraiteUp: '768px',
   tabletPortraiteDown: '767px',
   mobileUp: '480px',
-  mobileDown: '479px'
+  mobileDown: '479px',
 }

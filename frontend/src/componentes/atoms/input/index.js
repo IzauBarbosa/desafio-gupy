@@ -1,7 +1,15 @@
 import { useRef } from 'react'
 import { Styles } from './styles'
 
-export const Input = ({ id, name, type, required, checked, onChange, value }) => {
+export const Input = ({
+  id,
+  name,
+  type,
+  required,
+  checked,
+  onChange,
+  value,
+}) => {
   const inputEl = useRef(null)
 
   return (

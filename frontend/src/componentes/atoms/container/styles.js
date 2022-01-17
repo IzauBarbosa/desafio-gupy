@@ -6,13 +6,13 @@ export const Styles = styled.div`
   max-width: ${({ size }) => {
     switch (size) {
       case 'big':
-        return convertPxToRem(1200);
+        return convertPxToRem(1200)
       case 'large':
-        return convertPxToRem(920);
+        return convertPxToRem(920)
       case 'small':
-        return convertPxToRem(480);
+        return convertPxToRem(480)
       default:
-        return convertPxToRem(640);
+        return convertPxToRem(640)
     }
   }};
   margin: 0 auto;

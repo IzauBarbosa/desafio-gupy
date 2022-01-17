@@ -17,7 +17,7 @@ export const Group = styled.div`
 export const Radio = styled.div`
   flex: 1;
   height: 100%;
-  
+
   > .input:checked {
     + .label::before {
       background: ${colors.primary};
@@ -34,7 +34,7 @@ export const Radio = styled.div`
     background: ${colors.neutralWhiteBase};
     border-radius: ${convertPxToRem(8)};
     cursor: pointer;
-    
+
     &::before {
       content: '';
       display: block;

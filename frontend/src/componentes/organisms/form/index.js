@@ -30,8 +30,9 @@ export const Form = ({ request, fields, link, callback }) => {
       <CardShadow>
         <Body className="body">
           {(fields || []).map((field, index) => {
-            const { id, name, label, type, required, onChange, value, group } = field
-            
+            const { id, name, label, type, required, onChange, value, group } =
+              field
+
             switch (type) {
               case 'radio':
                 return (
@@ -51,9 +52,7 @@ export const Form = ({ request, fields, link, callback }) => {
           })}
         </Body>
         <Footer className="footer">
-          {link && <Link to={link.to}>
-            {link.text}
-          </Link>}
+          {link && <Link to={link.to}>{link.text}</Link>}
           <Button type="submit" disabled={loading} {...{ loading }}>
             Enviar
           </Button>

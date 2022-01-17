@@ -10,6 +10,7 @@ export const Styles = styled.header`
   > .container {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+    gap: ${convertPxToRem(24)};
   }
 `

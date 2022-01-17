@@ -7,5 +7,5 @@ export const colors = {
   neutralWhiteDark: '#919191',
   neutralBlackBase: '#262626',
   neutralBlackLight: '#717171',
-  neutralBlackDark: '#F0F0F0'
+  neutralBlackDark: '#F0F0F0',
 }

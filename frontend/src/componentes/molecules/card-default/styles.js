@@ -18,14 +18,13 @@ export const Body = styled.div`
 
   .paragraph {
     + .paragraph {
-      margin-top: ${convertPxToRem(8)}
+      margin-top: ${convertPxToRem(8)};
     }
   }
 `
 
 export const Footer = styled.div`
   margin-top: ${convertPxToRem(24)};
-
 
   @media screen and (min-width: ${breakpoint.mobileUp}) {
     > .button {

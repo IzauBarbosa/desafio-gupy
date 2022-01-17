@@ -3,6 +3,6 @@ import { convertPxToRem } from '../../../helpers'
 
 export const Styles = styled.div`
   + * {
-    margin-top: ${convertPxToRem(16)}
+    margin-top: ${convertPxToRem(16)};
   }
 `

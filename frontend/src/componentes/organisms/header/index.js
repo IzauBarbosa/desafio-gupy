@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { setItem } from '../../../services'
-import { Container, Button } from '../../atoms'
+import { Container, Button, Logo } from '../../atoms'
 import { Styles } from './styles'
 
 export const Header = () => {
@@ -16,6 +16,7 @@ export const Header = () => {
   return (
     <Styles className="header">
       <Container size="big">
+        <Logo color="secondary" />
         <Button type="button" onClick={handleSignOut} theme="default">
           Sair
         </Button>
