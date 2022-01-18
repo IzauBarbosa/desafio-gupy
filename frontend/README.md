@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Desafio - Front-End
+- Introdução
+- Configuração
+- Comandos
+- Detalhes do projeto
+    - Estrutura de pastas
+    - Pacotes utilizados
+    - Comandos de desenvolvimento
+- Ajustes na API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introdução
+A descrição do projeto pode ser visualizada [aqui](https://github.com/gupy-io/do-at-home-front-interview/blob/main/README.md).
 
-## Available Scripts
+## Configuração
+- [Instalar Node](https://nodejs.org/en/download/package-manager/).
+- Execurtar o comando `cd frontend`, em seguida `npm ci` para instalar as dependências.
 
-In the project directory, you can run:
+## Comandos
+- `npm run start`, executa a aplicação na porta `http://localhost:3000/`.
 
-### `npm start`
+## Detalhes do projeto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Estrutura das pastas
+- src 
+    - componentes - Utilizado a metodologia [Atomic design](https://vidadeproduto.com.br/atomic-design/)
+        - atoms - São os blocos básicos de construção da matéria. Aplicados às interfaces da web, os átomos são nossas tags HTML/componentes básicos, uma imagem de perfil, um label de formulário, um campo de texto ou um botão.
+        - molecules - São grupos relativamente simples de elementos da interface que funcionam juntos como uma unidade. Por exemplo, uma imagem de perfil, um label, um card e botão podem se combinar em um card de informação do usuário.
+        - organisms - São componentes de interface relativamente complexos compostos por grupos de moléculas e/ou átomos e/ou outros organismos. Por exemplo, uma lista composta de cards com imagem de perfil e nome.
+        - templates - Colocam componentes em um layout e demonstram a estrutura de conteúdo subjacente do design.
+        - pages - Aplicam conteúdo real aos modelos e articulam variações para demonstrar a interface do usuário final e testar a resiliência do sistema de design.
+    - helpers - São funções para auxiliar no desenvolvimento. Por exemplo, uma conversão de unidade como `px` para `rem`.
+    - services - São funções utilizada para se comunicar com serviços externos. Por exemplo, uma requisição para o servidor.
+    - theme - São objetos utilizados para configurar o tema do sistema. Por exemplo, configurar as cores utilizadas.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Pacotes utilizados
+- [create-react-app](https://create-react-app.dev/docs/getting-started) - Create React App é uma maneira oficialmente suportada de criar aplicativos React de página única. Ele oferece uma configuração de compilação moderna sem configuração.
+- [axios](https://axios-http.com/docs/intro) - Axios é um cliente HTTP baseado-em-promessas para o node.js e para o navegador.
+- [react-router-dom](https://reactrouter.com/docs/en/v6/getting-started/overview) - O React Router é uma biblioteca de roteamento do lado do servidor e cliente com todos os recursos para React, uma biblioteca JavaScript para construir interfaces de usuário.
+- [styled-components](https://styled-components.com/)
+- [react-toastify](https://fkhadra.github.io/react-toastify/introduction)
 
-### `npm test`
+### Comandos de desenvolvimento
+- `npm run lint` - Executa o lint
+- `npm run format` - Executa o prettier
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Ajustes na API
+- Variável baseUrl ajustada no arquivo do `insomnia.json`
+- Adicionado o campo `type` para entidade account. O arquivo `account.enums.ts` contém os tipos de usuário
+- Alterado o endpoint `/accounts/create-account` para receber o campo `type`
+- Adicionado endpoint `/accounts/login` para o usuário realizar o acesso ao sistema
