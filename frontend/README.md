@@ -10,6 +10,10 @@
 
 ## Introdução
 A descrição do projeto pode ser visualizada [aqui](https://github.com/gupy-io/do-at-home-front-interview/blob/main/README.md).
+As contas criadas para realizar os testes são:
+- email: `candidato@email.com` senha: `some-password`
+- email: `entrevistador@email.com` senha: `some-password`
+- email: `recrutador@email.com` senha: `some-password`
 
 ## Configuração
 - [Instalar Node](https://nodejs.org/en/download/package-manager/).
