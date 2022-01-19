@@ -1,19 +1,28 @@
 import { setItem, getItem } from './localStorage'
 
-describe('Should setItem and getItem using localStorage', () => {
-  it('Should key type of string', () => {
-    expect(setItem('keyString', 'string')).toBe(true)
+describe('setItem', () => {
+  it('Should save passed value on the passed key on localStorage', () => {
+    setItem('keyString', 'string')
+    expect(localStorage.getItem('keyString')).toBe('string')
   })
 
-  it('Should return the string from the key', () => {
+  it('Should stringfy value when its type is an object', () => {
+    const obj = { items: [0, 1, 2] }
+    setItem('keyObject', obj)
+    expect(localStorage.getItem('keyObject')).toBe(JSON.stringify(obj))
+  })
+})
+
+describe('getItem', () => {
+
+  it('Should get value from the key', () => {
+    setItem('keyString', 'string')
     expect(getItem('keyString')).toBe('string')
   })
 
-  it('Should value type of object', () => {
-    expect(setItem('keyObject', { items: [0, 1, 2] })).toBe(true)
-  })
-
-  it('Should return the object from the key', () => {
-    expect(getItem('keyObject')).toMatchObject({ items: [0, 1, 2] })
+  it('Should get parsed value when its type is a Json string', () => {
+    const obj = { items: [0, 1, 2] }
+    setItem('keyObject', obj)
+    expect(getItem('keyObject')).toMatchObject(obj)
   })
 })
