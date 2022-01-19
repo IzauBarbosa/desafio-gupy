@@ -34,16 +34,20 @@ export const requestToAPI = async (
       data: response?.data?.data,
     }
   } catch (error) {
-    const errors = error?.response?.data?.message ?? []
+    const { statusCode } = error?.response?.data
 
-    if (errors.length) {
-      if (typeof errors !== 'string') {
-        errors.forEach((err) => {
+    if (statusCode) {
+      const message = error?.response?.data?.message
+
+      if (Array.isArray(message)) {
+        message.forEach((err) => {
           toast.error(err)
         })
+      } else {
+        toast.error(message)
       }
     } else {
-      toast.error('Servidores indisponíveis. 🤯')
+      toast.error("Ops, algo deu errado.")
     }
   }
 
