@@ -30,7 +30,7 @@ export const Login = () => {
   return (
     <Styles className="login">
       <Container size="small">
-        <SignIn 
+        <SignIn
           request={{
             method: 'post',
             context: 'accounts',
@@ -61,7 +61,8 @@ export const Login = () => {
             to: '/create-account',
             text: 'Cadastre-se',
           }}
-          callback={setLoginResponse} />
+          callback={setLoginResponse}
+        />
       </Container>
     </Styles>
   )

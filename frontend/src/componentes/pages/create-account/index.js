@@ -97,7 +97,8 @@ export const CreateAccount = () => {
             to: '/',
             text: 'Voltar',
           }}
-          callback={setRegisterResponse} />
+          callback={setRegisterResponse}
+        />
       </Container>
     </Styles>
   )
