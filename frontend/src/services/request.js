@@ -47,7 +47,7 @@ export const requestToAPI = async (
         toast.error(message)
       }
     } else {
-      toast.error("Ops, algo deu errado.")
+      toast.error('Ops, algo deu errado.')
     }
   }
 

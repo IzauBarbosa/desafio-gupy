@@ -16,11 +16,13 @@ As contas criadas para realizar os testes são:
 - email: `recrutador@email.com` senha: `some-password`
 
 ## Configuração
-- [Instalar Node](https://nodejs.org/en/download/package-manager/).
-- Executar o comando `cd frontend`, em seguida `npm ci` para instalar as dependências.
+- [Instalar Node](https://nodejs.org/en/download/package-manager/)
+- Executar o comando na raiz do projeto `cd backend`, em seguida `npm ci` para instalar as dependências
+- Executar o comando na raiz do projeto `cd frontend`, em seguida `npm ci` para instalar as dependências
 
 ## Comandos
-- `npm run start`, executa a aplicação na porta `http://localhost:3000/`.
+- Na pasta `backend` executar o comando `npm run start`, que executa o servidor na porta `http://localhost:8080/`
+- Na pasta `frontend` executar o comando `npm run start`, que executa a aplicação na porta `http://localhost:3000/`
 
 ## Detalhes do projeto
 
