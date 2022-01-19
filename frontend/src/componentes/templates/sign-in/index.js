@@ -1,11 +1,8 @@
-import { useState } from 'react'
 import { Logo } from '../../atoms'
 import { Form } from '../../organisms'
 import { Styles, Header, Body } from './styles'
 
-export const SignIn = ({ callback, enableToastDefault }) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+export const SignIn = ({ request, fields, link, callback }) => {
 
   return (
     <Styles className="sign-in">
@@ -13,38 +10,8 @@ export const SignIn = ({ callback, enableToastDefault }) => {
         <Logo color="primary" />
       </Header>
       <Body>
-        <Form
-          request={{
-            method: 'post',
-            context: 'accounts',
-            endpoint: 'login',
-            data: { email, password },
-            enableToastDefault,
-          }}
-          fields={[
-            {
-              type: 'email',
-              id: 'email',
-              label: 'Informe seu email',
-              value: email,
-              required: 'required',
-              onChange: setEmail,
-            },
-            {
-              type: 'password',
-              id: 'password',
-              label: 'Informe sua senha',
-              value: password,
-              required: 'required',
-              reset: true,
-              onChange: setPassword,
-            },
-          ]}
-          link={{
-            to: '/create-account',
-            text: 'Cadastre-se',
-          }}
-          {...{ callback }}
+        <Form   
+          {...{ request, fields, link, callback }}
         />
       </Body>
     </Styles>

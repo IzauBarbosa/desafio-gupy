@@ -17,7 +17,7 @@ As contas criadas para realizar os testes são:
 
 ## Configuração
 - [Instalar Node](https://nodejs.org/en/download/package-manager/).
-- Execurtar o comando `cd frontend`, em seguida `npm ci` para instalar as dependências.
+- Executar o comando `cd frontend`, em seguida `npm ci` para instalar as dependências.
 
 ## Comandos
 - `npm run start`, executa a aplicação na porta `http://localhost:3000/`.

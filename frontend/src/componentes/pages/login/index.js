@@ -7,6 +7,8 @@ import { Styles } from './styles'
 
 export const Login = () => {
   const [user] = useState(getItem('user'))
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [loginResponse, setLoginResponse] = useState()
   const navigate = useNavigate()
 
@@ -28,7 +30,38 @@ export const Login = () => {
   return (
     <Styles className="login">
       <Container size="small">
-        <SignIn callback={setLoginResponse} enableToastDefault={false} />
+        <SignIn 
+          request={{
+            method: 'post',
+            context: 'accounts',
+            endpoint: 'login',
+            data: { email, password },
+            enableToastDefault: false,
+          }}
+          fields={[
+            {
+              type: 'email',
+              id: 'email',
+              label: 'Informe seu email',
+              value: email,
+              required: 'required',
+              onChange: setEmail,
+            },
+            {
+              type: 'password',
+              id: 'password',
+              label: 'Informe sua senha',
+              value: password,
+              required: 'required',
+              reset: true,
+              onChange: setPassword,
+            },
+          ]}
+          link={{
+            to: '/create-account',
+            text: 'Cadastre-se',
+          }}
+          callback={setLoginResponse} />
       </Container>
     </Styles>
   )
