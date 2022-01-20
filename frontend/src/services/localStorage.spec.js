@@ -17,7 +17,6 @@ describe('setItem', () => {
 })
 
 describe('getItem', () => {
-
   it('Should get value from the key', () => {
     const key = 'keyString'
     const value = 'string'

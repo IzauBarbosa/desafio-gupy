@@ -6,6 +6,8 @@ describe('Should convert values from PX to REM', () => {
   })
 
   it('Should throw error when the type of the parameter is string', () => {
-    expect(() => convertPxToRem('10px')).toThrow('invalid parameter type. Should be string')
+    expect(() => convertPxToRem('10px')).toThrow(
+      'invalid parameter type. Should be string',
+    )
   })
 })

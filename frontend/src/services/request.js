@@ -34,7 +34,7 @@ export const requestToAPI = async (
       data: response?.data?.data,
     }
   } catch (error) {
-    const { statusCode } = error?.response?.data
+    const statusCode = error?.response?.data?.statusCode
 
     if (statusCode) {
       const message = error?.response?.data?.message
